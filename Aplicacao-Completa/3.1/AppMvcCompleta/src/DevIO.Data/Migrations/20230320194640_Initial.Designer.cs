@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevIO.Data.Migrations
 {
     [DbContext(typeof(MeuDbContext))]
-    [Migration("20230320182118_Initial")]
+    [Migration("20230320194640_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,7 +75,8 @@ namespace DevIO.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Documento")
-                        .HasColumnType("varchar(100)");
+                        .IsRequired()
+                        .HasColumnType("varchar(14)");
 
                     b.Property<string>("Nome")
                         .IsRequired()

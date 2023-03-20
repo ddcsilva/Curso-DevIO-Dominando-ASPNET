@@ -12,7 +12,7 @@ GO
 CREATE TABLE [Fornecedores] (
     [Id] uniqueidentifier NOT NULL,
     [Nome] varchar(200) NOT NULL,
-    [Documento] varchar(100) NULL,
+    [Documento] varchar(14) NOT NULL,
     [TipoFornecedor] int NOT NULL,
     [Ativo] bit NOT NULL,
     CONSTRAINT [PK_Fornecedores] PRIMARY KEY ([Id])
@@ -60,7 +60,7 @@ CREATE INDEX [IX_Produtos_FornecedorId] ON [Produtos] ([FornecedorId]);
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20230320182118_Initial', N'3.1.32');
+VALUES (N'20230320194640_Initial', N'3.1.32');
 
 GO
 

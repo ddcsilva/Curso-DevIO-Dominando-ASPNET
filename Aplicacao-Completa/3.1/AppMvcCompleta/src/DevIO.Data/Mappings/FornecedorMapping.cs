@@ -14,6 +14,10 @@ namespace DevIO.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(200)");
 
+            builder.Property(f => f.Documento)
+                .IsRequired()
+                .HasColumnType("varchar(14)");
+
             // 1 : 1 => Fornecedor : Endereço
             builder.HasOne(f => f.Endereco)
                 .WithOne(e => e.Fornecedor);

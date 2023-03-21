@@ -57,7 +57,7 @@ CREATE INDEX [IX_Produtos_FornecedorId] ON [Produtos] ([FornecedorId]);
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20230320205121_Initial', N'6.0.15');
+VALUES (N'20230321213309_Initial', N'6.0.15');
 GO
 
 COMMIT;

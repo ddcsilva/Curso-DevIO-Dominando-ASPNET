@@ -23,7 +23,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Adicionando o MVC
-builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<MeuDbContext>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();

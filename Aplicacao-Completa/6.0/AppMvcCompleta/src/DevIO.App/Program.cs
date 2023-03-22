@@ -22,6 +22,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 // Adicionando o Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
+// Adicionando o AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
+
 // Adicionando o MVC
 builder.Services.AddControllersWithViews();
 

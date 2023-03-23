@@ -56,6 +56,14 @@ public class ProdutosController : BaseController
             return View(produtoViewModel);
         }
 
+        var imagemPrefixo = Guid.NewGuid() + "_";
+        if (!await UploadArquivo(produtoViewModel.ImagemUpload, imagemPrefixo))
+        {
+            return View(produtoViewModel);
+        }
+
+        produtoViewModel.Imagem = imagemPrefixo + produtoViewModel.ImagemUpload.FileName;
+
         await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));
 
         return RedirectToAction("Index");
@@ -126,5 +134,28 @@ public class ProdutosController : BaseController
     {
         produto.Fornecedores = _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
         return produto;
+    }
+
+    private async Task<bool> UploadArquivo(IFormFile arquivo, string imagemPrefixo)
+    {
+        if (arquivo.Length <= 0)
+        {
+            return false;
+        }
+
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imagemPrefixo + arquivo.FileName);
+
+        if (System.IO.File.Exists(path))
+        {
+            ModelState.AddModelError(string.Empty, "Já existe um arquivo com este nome!");
+            return false;
+        }
+
+        using (var stream = new FileStream(path, FileMode.Create))
+        {
+            await arquivo.CopyToAsync(stream);
+        }
+
+        return true;
     }
 }

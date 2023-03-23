@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-DevIO.App-5432178e-8b1c-48b1-9995-ff935085c39c</UserSecretsId>
   </PropertyGroup>

@@ -8,5 +8,6 @@ namespace DevIO.App.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<DevIO.App.ViewModels.ProdutoViewModel>? ProdutoViewModel { get; set; }
+        public DbSet<DevIO.App.ViewModels.EnderecoViewModel>? EnderecoViewModel { get; set; }
     }
 }

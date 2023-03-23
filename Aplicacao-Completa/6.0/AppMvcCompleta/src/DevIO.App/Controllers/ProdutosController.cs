@@ -90,7 +90,32 @@ public class ProdutosController : BaseController
             return NotFound();
         }
 
-        await _produtoRepository.Atualizar(_mapper.Map<Produto>(produtoViewModel));
+        var produtoAtualizacao = await ObterProduto(id);
+        produtoViewModel.Fornecedor = produtoAtualizacao.Fornecedor;
+        produtoViewModel.Imagem = produtoAtualizacao.Imagem;
+
+        if (!ModelState.IsValid)
+        {
+            return View(produtoViewModel);
+        }
+
+        if (produtoViewModel.ImagemUpload != null)
+        {
+            var imagemPrefixo = Guid.NewGuid() + "_";
+            if (!await UploadArquivo(produtoViewModel.ImagemUpload, imagemPrefixo))
+            {
+                return View(produtoViewModel);
+            }
+
+            produtoAtualizacao.Imagem = imagemPrefixo + produtoViewModel.ImagemUpload.FileName;
+        }
+
+        produtoAtualizacao.Nome = produtoViewModel.Nome;
+        produtoAtualizacao.Descricao = produtoViewModel.Descricao;
+        produtoAtualizacao.Valor = produtoViewModel.Valor;
+        produtoAtualizacao.Ativo = produtoViewModel.Ativo;
+
+        await _produtoRepository.Atualizar(_mapper.Map<Produto>(produtoAtualizacao));
 
         return RedirectToAction("Index");
     }

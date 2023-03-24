@@ -82,7 +82,7 @@ function BuscaCep() {
                                 $("#Endereco_Bairro").val(dados.bairro);
                                 $("#Endereco_Cidade").val(dados.localidade);
                                 $("#Endereco_Estado").val(dados.uf);
-                            } 
+                            }
                             else {
                                 // CEP pesquisado não foi encontrado.
                                 limpa_formulário_cep();
@@ -95,7 +95,7 @@ function BuscaCep() {
                     limpa_formulário_cep();
                     alert("Formato de CEP inválido.");
                 }
-            } 
+            }
             else {
                 // CEP sem valor, limpa formulário.
                 limpa_formulário_cep();
@@ -103,3 +103,7 @@ function BuscaCep() {
         });
     });
 }
+
+$(document).ready(function () {
+    $("#msg_box").fadeOut(2500);
+});

@@ -2,7 +2,7 @@
 using DevIO.App.ViewModels;
 using DevIO.Business.Models;
 
-namespace DevIO.App.AutoMapper;
+namespace DevIO.App.Configurations;
 
 public class AutoMapperConfig : Profile
 {

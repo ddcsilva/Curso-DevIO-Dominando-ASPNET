@@ -1,8 +1,8 @@
 ﻿using DevIO.Business.Models;
 
-namespace DevIO.Business.Intefaces;
+namespace DevIO.Business.Interfaces;
 
-public interface IFornecedorService
+public interface IFornecedorService : IDisposable
 {
     Task Adicionar(Fornecedor fornecedor);
     Task Atualizar(Fornecedor fornecedor);

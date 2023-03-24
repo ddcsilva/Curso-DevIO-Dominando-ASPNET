@@ -1,4 +1,4 @@
-﻿@using DevIO.App.Extensions;
+﻿@using DevIO.App.Extensions
 @model IEnumerable<DevIO.App.ViewModels.FornecedorViewModel>
 
 @{
@@ -6,11 +6,13 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+
 <hr />
 
 <p>
     <a class="btn btn-info" asp-action="Create">Novo Fornecedor</a>
 </p>
+
 <table class="table table-hover">
     <thead class="table-dark">
         <tr>
@@ -24,8 +26,6 @@
                 @Html.DisplayNameFor(model => model.Ativo)
             </th>
             <th></th>
-        </tr>
-        </tr>
         </tr>
     </thead>
     <tbody>
@@ -43,7 +43,7 @@
                 </td>
                 <td class="text-end">
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil"></span></a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
                 </td>
             </tr>

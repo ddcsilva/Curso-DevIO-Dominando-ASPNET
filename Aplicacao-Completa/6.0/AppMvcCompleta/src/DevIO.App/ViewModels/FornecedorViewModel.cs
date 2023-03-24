@@ -18,7 +18,7 @@ public class FornecedorViewModel
 
     [DisplayName("Tipo")]
     public int TipoFornecedor { get; set; }
-    
+
     public EnderecoViewModel Endereco { get; set; }
 
     [DisplayName("Ativo?")]
